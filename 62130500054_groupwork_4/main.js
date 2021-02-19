@@ -3,6 +3,7 @@ const app = {
     return {
       galleries: [
         {
+          no: 1,
           title: "Car",
           images:
             "https://images.unsplash.com/photo-1612882835995-1b3af9a52d5b?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHw%3D&ixlib=rb-1.2.1",
@@ -10,6 +11,7 @@ const app = {
           heart: false,
         },
         {
+          no: 2,
           title: "Women",
           images:
             "https://images.unsplash.com/photo-1612830079777-54121ec93c40?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHw%3D&ixlib=rb-1.2.1",
@@ -17,6 +19,7 @@ const app = {
           heart: false,
         },
         {
+          no: 3,
           title: "XPS",
           images:
             "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyOXx8fGVufDB8fHw%3D&ixlib=rb-1.2.1",
@@ -24,6 +27,7 @@ const app = {
           heart: false,
         },
         {
+          no: 4,
           title: "Women Buetiful",
           images:
             "https://images.unsplash.com/photo-1612834484807-31997b8d4441?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0Nnx8fGVufDB8fHw%3D&ixlib=rb-1.2.1",
@@ -35,14 +39,32 @@ const app = {
         text: "",
         search: false,
       },
+      modal: false,
+      imageModal: "",
     };
   },
   methods: {
-    Like(index) {
-      this.galleries[index].heart = !this.galleries[index].heart;
+    like(no) {
+      for (let index = 0; index <= this.galleries.length; index++) {
+        const element = this.galleries[index];
+        if (element.no == no) {
+          this.imageModal = element.images
+          element.heart = !element.heart;
+          if(element.heart){
+            this.modal = !this.modal;
+          }
+          break
+        }
+      }
     },
     search() {
       this.form.search = !this.form.search;
+    },
+    cancle() {
+      (this.form.search = !this.form.search), (this.form.text = "");
+    },
+    toggleModal(no) {
+      this.modal = !this.modal;
     },
   },
   computed: {
@@ -51,7 +73,9 @@ const app = {
     },
     searching() {
       return this.galleries.filter((member) => {
-        return member.title.toLowerCase().includes(this.form.text.toLowerCase());
+        return member.title
+          .toLowerCase()
+          .includes(this.form.text.toLowerCase());
       });
     },
   },

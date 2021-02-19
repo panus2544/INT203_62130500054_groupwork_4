@@ -7,4 +7,4 @@
 - This is repository for learning Web Client Side of INT203.
 - 🌱 Student ID : 62130500054
 - 💬 Thank you.
-- <img height="16px" src="https://cdn.svgporn.com/logos/facebook.svg"> [Panus Kotrajarus](https://web.facebook.com/Panuskhjrs/)# INT203_62130500054_groupwork_4
+- <img height="16px" src="https://cdn.svgporn.com/logos/facebook.svg"> [Panus Kotrajarus](https://web.facebook.com/Panuskhjrs/)
